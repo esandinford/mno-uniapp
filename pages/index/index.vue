@@ -1,17 +1,16 @@
 <template>
 	<view>
-		<button @tap="getPhoneNum()">一键登录</button>
-		
+		<button class="eButton" @tap="getPhoneNum()">一键登录</button>
 		<textarea v-model="logs"></textarea>
 		</view>
 </template>
 
 <script>
-var MNOModule = uni.requireNativePlugin('Esand-MNOModule');
+const MNOModule = uni.requireNativePlugin('Esand-MNOModule');
 //阿里云市场appcode(从阿里云市场获取)
-let appcode = '替换成你的appcode';
+const appcode = '替换成你的appcode';
 //申请生成密钥 （此密钥需要向一砂获取，可联系 13691664797）
-let secretKey ='申请密钥';
+const secretKey ='申请密钥';
 //客制化界面 ios和android 制定界面参数不同，详情参考客制化界面文档
 let authUIConfigJson = '';
 export default {
@@ -93,3 +92,17 @@ export default {
 	}
 };
 </script>
+<style>
+	.eButton{
+		margin-top: 40px;
+		display: inline-block;
+		background-color: #F0AD4E;
+	}
+	textarea{
+		text-align: left;
+		font-size: 23px;
+		background-color: #333333;
+		color: white;
+		width: 100%;
+	}
+</style>
