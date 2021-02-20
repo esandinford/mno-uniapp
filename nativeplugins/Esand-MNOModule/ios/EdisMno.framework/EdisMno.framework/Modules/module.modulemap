@@ -1,0 +1,6 @@
+framework module EdisMno {
+  umbrella header "EdisMno.h"
+
+  export *
+  module * { export * }
+}

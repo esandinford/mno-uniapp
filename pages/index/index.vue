@@ -8,9 +8,9 @@
 <script>
 const MNOModule = uni.requireNativePlugin('Esand-MNOModule');
 //阿里云市场appcode(从阿里云市场获取)
-const appcode = '替换成你的appcode';
+const appcode = '2294b96c1dce4aedafa39bfa3fc5708c';
 //申请生成密钥 （此密钥需要向一砂获取，可联系 13691664797）
-const secretKey ='申请密钥';
+const secretKey ='EUK3SDY4rE5uOgfqv8BuGP+UlGnVgyC+v86XE9/oE92c5t0zUbISvN+g9a61Gbarsl0xtrgdVPGq8WM8BzpHlAn7P2wGhVS+6U6S/ftnADhS38rSy9NwI/V2kcZsp/vPjgU3vvbaFiwtb6sB9LzL4etZoeBJUAvGaVhHmTiXFiIE/26yKFK2r9+1AyPBKpjJxcxnYTgF2PtmTc5Ob5QuYxrwGqkK78nYhUZ5tNGCIksHxWhMdZm6caWlX3CG2gKGtpwEQt45yXTkaecN2Wofstk5gdPYSlOegpQGs+zaQLgtAkfkNWSxvKdFVGlpMjkGWtO90uoFVrc=';
 //客制化界面 ios和android 制定界面参数不同，详情参考客制化界面文档
 let authUIConfigJson = '';
 export default {
@@ -38,7 +38,7 @@ export default {
 				//设置隐私条款是否默认勾选 详情可前往 https://esandinfo.yuque.com/books/share/5ddd649d-2afa-48e6-bb07-633105dfec88/pu6myx
 				authUIConfig.privacyState = true;
 				//设置logo 图片
-				authUIConfig.logoImgPath = "cscs";
+				authUIConfig.logoImgPath = "a123456";
 				authUIConfigJson = JSON.stringify(authUIConfig);
 				//authUIConfigJson = "{\n" +
 				//          "   \"privacyState\":true,\n" +

@@ -1,0 +1,39 @@
+{
+	"name": "Esand-MNOModule",
+	"id": "Esand-MNOModule",
+	"version": "1.0.0",
+	"description": "一键登入",
+	"_dp_type": "nativeplugin",
+	"_dp_nativeplugin": {
+		"android": {
+			"plugins": [{
+				"type": "module",
+				"name": "Esand-MNOModule",
+				"class": "com.esandinfo.mno.uni.MNOModule"
+			}],
+			"integrateType": "aar",
+			"minSdkVersion": 22,
+			"permissions": [
+				"android.permission.ACCESS_NETWORK_STATE",
+				"android.permission.INTERNET",
+				"android.permission.ACCESS_WIFI_STATE",
+				"android.permission.CHANGE_NETWORK_STATE"
+			]
+		},
+		 "ios": {
+			"plugins": [
+                {
+                    "type": "module",
+                    "name": "Esand-MNOModule",
+                    "class": "MNOModule"
+                }
+            ],"resources": [
+				"cscs.png",
+				"ATAuthSDK.bundle",
+				"container_icon_btn1.png",
+				"container_icon_btn2.png"
+			],
+			"integrateType": "framework"
+		}
+	}
+}

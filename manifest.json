@@ -50,15 +50,15 @@
         "nativePlugins" : {
             "Esand-MNOModule" : {
                 "__plugin_info__" : {
-                    "name" : "一键登录/本机号码认证",
-                    "description" : "本接口提供一键登录(一键取号)，本机号码认证功能",
+                    "name" : "Esand-MNOModule",
+                    "description" : "一键登入",
                     "platforms" : "Android,iOS",
-                    "url" : "https://ext.dcloud.net.cn/plugin?id=3446",
-                    "android_package_name" : "com.esandinfo.esandcloud.android",
+                    "url" : "",
+                    "android_package_name" : "",
                     "ios_bundle_id" : "",
-                    "isCloud" : true,
-                    "bought" : 1,
-                    "pid" : "3446",
+                    "isCloud" : false,
+                    "bought" : -1,
+                    "pid" : "",
                     "parameters" : {}
                 }
             }
