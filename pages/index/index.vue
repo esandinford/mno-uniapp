@@ -2,26 +2,28 @@
 	<view>
 		<button class="eButton" @tap="getPhoneNum()">一键登录</button>
 		<textarea v-model="logs"></textarea>
-		</view>
+		<button class="eButton" @tap="clearConsole()">清屏</button>
+		<div class="bgp"></div>
+	</view>
 </template>
 
 <script>
 const MNOModule = uni.requireNativePlugin('Esand-MNOModule');
 //阿里云市场appcode(从阿里云市场获取)
-const appcode = '2294b96c1dce4aedafa39bfa3fc5708c';
+const appcode = '替换为你的appcode';
 //申请生成密钥 （此密钥需要向一砂获取，可联系 13691664797）
-const secretKey ='EUK3SDY4rE5uOgfqv8BuGP+UlGnVgyC+v86XE9/oE92c5t0zUbISvN+g9a61Gbarsl0xtrgdVPGq8WM8BzpHlAn7P2wGhVS+6U6S/ftnADhS38rSy9NwI/V2kcZsp/vPjgU3vvbaFiwtb6sB9LzL4etZoeBJUAvGaVhHmTiXFiIE/26yKFK2r9+1AyPBKpjJxcxnYTgF2PtmTc5Ob5QuYxrwGqkK78nYhUZ5tNGCIksHxWhMdZm6caWlX3CG2gKGtpwEQt45yXTkaecN2Wofstk5gdPYSlOegpQGs+zaQLgtAkfkNWSxvKdFVGlpMjkGWtO90uoFVrc=';
+const secretKey = '申请生成密钥';
 //客制化界面 ios和android 制定界面参数不同，详情参考客制化界面文档
 let authUIConfigJson = '';
 export default {
-	data(){
-		return{
-			logs:"msg"
-		}
+	data() {
+		return {
+			logs: 'msg'
+		};
 	},
 	methods: {
 		getPhoneNum: function(e) {
-			let _this=this;
+			let _this = this;
 			//获取软件的运行平台
 			let platform = uni.getSystemInfoSync().platform;
 			// 1. 页面客制化
@@ -38,7 +40,7 @@ export default {
 				//设置隐私条款是否默认勾选 详情可前往 https://esandinfo.yuque.com/books/share/5ddd649d-2afa-48e6-bb07-633105dfec88/pu6myx
 				authUIConfig.privacyState = true;
 				//设置logo 图片
-				authUIConfig.logoImgPath = "a123456";
+				authUIConfig.logoImgPath = 'cscs';
 				authUIConfigJson = JSON.stringify(authUIConfig);
 				//authUIConfigJson = "{\n" +
 				//          "   \"privacyState\":true,\n" +
@@ -52,11 +54,11 @@ export default {
 					authUIConfigJson: authUIConfigJson
 				},
 				ret => {
-					_this.logs+=JSON.stringify(ret);
+					_this.logs += JSON.stringify(ret);
 					if (ret.code == '0') {
 						let dataBody = ret.data;
 						let dataBodyJson = JSON.parse(dataBody);
-						// 3. 从服务器端获取号码（为了保护APPCODE, 此段逻辑建议放在服务器端，APPCODE切勿泄漏！！）
+						// 3. 从服务器 端获取号码（为了保护APPCODE, 此段逻辑建议放在服务器端，APPCODE切勿泄漏！！）
 						uni.request({
 							url: 'http://edismno.market.alicloudapi.com/mno/getMobile',
 							method: 'POST',
@@ -82,27 +84,40 @@ export default {
 							},
 							success: res => {
 								console.log('网络请求成功' + JSON.stringify(res.data));
-								_this.logs+="获取结果成功"+JSON.stringify(res.data);
+								_this.logs += '获取结果成功' + JSON.stringify(res.data);
 							}
 						});
 					}
 				}
 			);
+		},
+		clearConsole() {
+			this.logs = '';
 		}
 	}
 };
 </script>
 <style>
-	.eButton{
-		margin-top: 40px;
-		display: inline-block;
-		background-color: #F0AD4E;
-	}
-	textarea{
-		text-align: left;
-		font-size: 23px;
-		background-color: #333333;
-		color: white;
-		width: 100%;
-	}
+.eButton {
+	margin-top: 40px;
+	display: inline-block;
+	background-color: #f0ad4e;
+}
+textarea {
+	text-align: left;
+	font-size: 23px;
+	color: white;
+	width: calc(100% - 4px);
+	border: #333333 2px solid;
+}
+.bgp {
+	display: inline-block;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #c8c7cc;
+	z-index: -1;
+}
 </style>
