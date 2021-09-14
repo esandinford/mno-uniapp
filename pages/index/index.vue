@@ -12,7 +12,7 @@ const MNOModule = uni.requireNativePlugin('Esand-MNOModule');
 //阿里云市场appcode(从阿里云市场获取)
 const appcode = '替换为你的appcode';
 //申请生成密钥 （此密钥需要向一砂获取，可联系 13691664797）
-const secretKey = '申请生成密钥';
+const secretKey = "申请生成密钥";
 //客制化界面 ios和android 制定界面参数不同，详情参考客制化界面文档
 let authUIConfigJson = '';
 export default {
@@ -55,6 +55,8 @@ export default {
 				},
 				ret => {
 					_this.logs += JSON.stringify(ret);
+					console.log(ret)
+					alert("ret")
 					if (ret.code == '0') {
 						let dataBody = ret.data;
 						let dataBodyJson = JSON.parse(dataBody);
